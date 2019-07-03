@@ -2,23 +2,20 @@
   "name": "electron-printer",
   "description": "Node.js printer bindings -  electron builds",
   "version": "0.0.5",
-  "homepage": "https://github.com/marcopiraccini/electron-printer",
+  "homepage": "https://github.com/copas12/electron-printer",
   "author": {
-    "name": "Marco Piraccini",
-    "email": "marco.piraccini@gmail.com"
+    "name": "Urip Subekti",
+    "email": "urip.subekti12@gmail.com"
   },
   "contributors": [
     "Name Lastname <email@server.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/marcopiraccini/electron-printer.git"
-  },
-  "engines": {
-    "electron": ">=0.36"
+    "url": "https://github.com/copas12/electron-printer.git"
   },
   "scripts": {
-    "preinstall": "npm install node-pre-gyp node-pre-gyp-github",
+    "preinstall": "npm install node-pre-gyp node-pre-gyp-github cross-env",
     "install": "node-pre-gyp install --fallback-to-build",
     "release-linux-ia32": "node-pre-gyp rebuild --target_arch=ia32 --dist-url=https://atom.io/download/atom-shell --target_platform=linux --runtime=electron --target=4.0.3 && node-pre-gyp package --target_arch=ia32 --target_platform=linux --runtime=electron --target=4.0.3 && npm run publish",
     "release-linux": "node-pre-gyp rebuild --target_arch=x64 --dist-url=https://atom.io/download/atom-shell --runtime=electron --target=4.0.3 --target_platform=linux && node-pre-gyp package --target_arch=x64 --target_platform=linux --runtime=electron --target=4.0.3 && npm run publish",
@@ -26,7 +23,7 @@
     "release-win": "node-pre-gyp rebuild --target_arch=x64 --dist-url=https://atom.io/download/atom-shell --target_platform=win32 --runtime=electron --target=4.0.3 && node-pre-gyp package --target_arch=x64 --target_platform=win32 --runtime=electron --target=4.0.3 && npm run publish",
     "release": "node-pre-gyp rebuild --runtime=electron --target=4.0.3 --dist-url=https://atom.io/download/atom-shell && node-pre-gyp package --runtime=electron --target=4.0.3 && npm run publish",
     "release-darwin": "HOME=~/.electron-gyp node-pre-gyp rebuild --target_platform=darwin --runtime=electron --target=4.0.3 --arch=x64 --dist-url=https://atom.io/download/atom-shell && node-pre-gyp package --target_platform=darwin --runtime=electron --target=4.0.3 && npm run publish",
-    "publish": "NODE_PRE_GYP_GITHUB_TOKEN=5dc99da7f3defdf2c930995b020bc7540cded35c node-pre-gyp-github publish --release"
+    "publish": "cross-env NODE_PRE_GYP_GITHUB_TOKEN=8f46e8313e9efb8df56d637bc9dd20f743856019 node-pre-gyp-github publish --release"
   },
   "binary": {
     "module_name": "node_printer",
@@ -35,9 +32,10 @@
     "host": "https://github.com/copas12/electron-printer/releases/download/0.0.5"
   },
   "dependencies": {
+    "cross-env": "^5.2.0",
     "nan": "^2.1.0",
-    "node-pre-gyp": "^0.6.13",
-    "node-pre-gyp-github": "^1.1.2"
+    "node-pre-gyp": "^0.6.39",
+    "node-pre-gyp-github": "^1.4.3"
   },
   "bundledDependencies": [
     "node-pre-gyp"
